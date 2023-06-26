@@ -6,7 +6,7 @@
 
 
 import os
-# import gdown
+import gdown
 import shutil
 
 import argparse
@@ -102,7 +102,7 @@ for data in args.data.split('-'):
 
         if data == 'test':
             print('Gaussian Denoising Testing Data!')
-            # gdown.download(id=gaussian_test, output='Datasets/test.zip', quiet=False)
+            gdown.download(id=gaussian_test, output='Datasets/test.zip', quiet=False)
             os.system(f'gdrive download {gaussian_test} --path Datasets/')
             print('Extracting Data...')
             shutil.unpack_archive('Datasets/test.zip', 'Datasets')
