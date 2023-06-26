@@ -53,7 +53,7 @@ model_restoration = nn.DataParallel(model_restoration)
 model_restoration.load_state_dict(checkpoint['net'])
 model_restoration.eval()
 
-datasets = ['Set12', 'Urban100']
+datasets = ['Set12', 'BSD68']
 
 for sigma_test in sigmas:
     print("Compute results for noise level", sigma_test)
