@@ -17,10 +17,17 @@ import utils_tool
 from basicsr.models.archs.kbnet_s_arch import KBNet_s
 from basicsr.utils.util import patch_forward
 
+import cv2
+
 try:
     from yaml import CLoader as Loader
 except ImportError:
     from yaml import Loader
+
+def imread(img_path):
+  img = cv2.imread(img_path)
+  img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+  return img
 
 parser = argparse.ArgumentParser(description='Gasussian Grayscale Denoising using Restormer')
 
