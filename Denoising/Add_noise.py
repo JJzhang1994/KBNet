@@ -89,7 +89,7 @@ for sigma_test in sigmas:
                 os.makedirs(gtnoisy_path, exist_ok=True)
                 shutil.copyfile(file_, os.path.join(gtnoisy_path, dataset + os.path.basename(file_)))
                 utils_tool.save_img(
-                    os.path.join(gtnoisy_path, dataset + os.path.basename(file_).split('.')[0] + '-noisy.png'),
+                    os.path.join(gtnoisy_path, os.path.basename(file_).split('.')[0] + '-noisy.tiff'),
                     img_as_ubyte(noisy.clip(0, 1)))
 
         #print(dataset, np.mean(psnr_list))
