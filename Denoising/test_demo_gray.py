@@ -107,7 +107,7 @@ for sigma_test in sigmas:
                 #psnr_list.append(utils_tool.calculate_psnr(gt, img_as_ubyte(restored)))
 
                 save_file = os.path.join(result_dir_tmp,
-                                         dataset + '-' + str(sigma_test) + '-%.2f-%s-' % (psnr_list[-1], cfg_name) +
+                                         dataset + '-' + str(sigma_test) + 
                                          os.path.split(file_)[-1])
                 #utils_tool.save_jpg(save_file.replace('.png', '.jpg'), img_as_ubyte(restored))
                 utils_tool.save_gray_img(save_file, img_as_ubyte(restored))
