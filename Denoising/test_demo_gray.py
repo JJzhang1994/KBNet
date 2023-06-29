@@ -67,7 +67,7 @@ for sigma_test in sigmas:
 
     for dataset in datasets:
         inp_dir = os.path.join(args.input_dir, dataset)
-        files = natsorted(glob(os.path.join(inp_dir, '*.png')) + glob(os.path.join(inp_dir, '*.tif')))
+        files = natsorted(glob(os.path.join(inp_dir, '*.png')) + glob(os.path.join(inp_dir, '*.tiff')))
         result_dir_tmp = os.path.join(args.result_dir, 'gray')
         os.makedirs(result_dir_tmp, exist_ok=True)
 
