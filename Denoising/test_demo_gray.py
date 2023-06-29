@@ -60,7 +60,7 @@ model_restoration = nn.DataParallel(model_restoration)
 model_restoration.load_state_dict(checkpoint['net'])
 model_restoration.eval()
 
-datasets = ['Set12', 'BSD68']
+datasets = ['test_folder']
 
 for sigma_test in sigmas:
     print("Compute results for noise level", sigma_test)
@@ -80,8 +80,8 @@ for sigma_test in sigmas:
                 gt = utils_tool.load_gray_img(file_)
                 img = np.float32(gt) / 255.
 
-                np.random.seed(seed=0)  # for reproducibility
-                img += np.random.normal(0, sigma_test / 255., img.shape)
+                #np.random.seed(seed=0)  # for reproducibility
+                #img += np.random.normal(0, sigma_test / 255., img.shape)
 
                 noisy = torch.from_numpy(img)
                 img = noisy.permute(2, 0, 1)
@@ -104,7 +104,7 @@ for sigma_test in sigmas:
                 # save_file = os.path.join(result_dir_tmp, os.path.split(file_)[-1])
                 # utils_tool.save_gray_img(save_file, img_as_ubyte(restored))
 
-                psnr_list.append(utils_tool.calculate_psnr(gt, img_as_ubyte(restored)))
+                #psnr_list.append(utils_tool.calculate_psnr(gt, img_as_ubyte(restored)))
 
                 save_file = os.path.join(result_dir_tmp,
                                          dataset + '-' + str(sigma_test) + '-%.2f-%s-' % (psnr_list[-1], cfg_name) +
