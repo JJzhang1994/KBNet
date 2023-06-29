@@ -31,7 +31,7 @@ def imread(img_path):
 
 parser = argparse.ArgumentParser(description='Gasussian Grayscale Denoising using Restormer')
 
-parser.add_argument('--input_dir', default='./Datasets/test/', type=str, help='Directory of validation images')
+parser.add_argument('--input_dir', default='/content/drive/MyDrive/', type=str, help='Directory of validation images')
 parser.add_argument('--result_dir', default='./results/Gaussian_Gray_Denoising/', type=str,
                     help='Directory for results')
 parser.add_argument('--yml', default='None', type=str, help='Sigma values')
