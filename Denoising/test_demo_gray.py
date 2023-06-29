@@ -109,7 +109,8 @@ for sigma_test in sigmas:
                 save_file = os.path.join(result_dir_tmp,
                                          dataset + '-' + str(sigma_test) + '-%.2f-%s-' % (psnr_list[-1], cfg_name) +
                                          os.path.split(file_)[-1])
-                utils_tool.save_jpg(save_file.replace('.png', '.jpg'), img_as_ubyte(restored))
+                #utils_tool.save_jpg(save_file.replace('.png', '.jpg'), img_as_ubyte(restored))
+                utils_tool.save_gray_img(save_file, img_as_ubyte(restored))
 
                 gtnoisy_path = os.path.join(args.result_dir, 'gray_ori')
                 os.makedirs(gtnoisy_path, exist_ok=True)
@@ -118,4 +119,4 @@ for sigma_test in sigmas:
                     os.path.join(gtnoisy_path, dataset + os.path.basename(file_).split('.')[0] + '-noisy.png'),
                     img_as_ubyte(noisy.clip(0, 1)))
 
-        print(dataset, np.mean(psnr_list))
+        #print(dataset, np.mean(psnr_list))
